@@ -21,17 +21,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 get_header(); ?>
 
-<div class="product-container top-diagonal">
-    <div>
-        <a href="/">
-            <img class="product-logo" src="/wp-content/uploads/2018/09/dark-logo.png" alt="Logo">
-        </a>
-    </div>
-    <div class="product-subcontainer top-diagonal">
-        <div class="grid">
-            <?php while ( have_posts() ) : the_post(); ?>
-                <?php wc_get_template_part( 'content', 'single-product' ); ?>
-            <?php endwhile; // end of the loop. ?>
 	<?php
 		/**
 		 * woocommerce_before_main_content hook.
@@ -39,8 +28,18 @@ get_header(); ?>
 		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
 		 * @hooked woocommerce_breadcrumb - 20
 		 */
-		// do_action( 'woocommerce_before_main_content' );
+		do_action( 'woocommerce_before_main_content' );
 	?>
+<div class="product-container top-diagonal">
+    <div>
+
+    </div>
+    <div class="product-subcontainer top-diagonal">
+        <div class="grid">
+            <?php while ( have_posts() ) : the_post(); ?>
+                <?php wc_get_template_part( 'content', 'single-product' ); ?>
+            <?php endwhile; // end of the loop. ?>
+
 
 	<?php
 		/**
@@ -48,7 +47,7 @@ get_header(); ?>
 		 *
 		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
 		 */
-		// do_action( 'woocommerce_after_main_content' );
+		do_action( 'woocommerce_after_main_content' );
 	?>
 
 

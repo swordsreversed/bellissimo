@@ -6,7 +6,6 @@
  */
 
 ?>
-<h2>testing</h2>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php

@@ -1,50 +1,21 @@
 <?php /* Template Name: page-about-us */ ?>
 
-<?php get_header(); ?>
-<div id="menuToggle">
-    <!--
-    A fake / hidden checkbox is used as click reciever,
-    so you can use the :checked selector on it.
-    -->
-    <input type="checkbox" />
-
-    <!--
-    Some spans to act as a hamburger.
-
-    They are acting like a real hamburger,
-    not that McDonalds stuff.
-    -->
-    <span></span>
-    <span></span>
-    <span></span>
-
-    <!--
-    Too bad the menu has to be inside of the button
-    but hey, it's pure CSS magic.
-    -->
-    <ul id="menu">
-      <a href="/"><li>Home</li></a>
-      <a href="/"><li>Shop</li></a>
-      <a href="/contact"><li>Contact</li></a>
-      <a href="/about-us"><li>About Us</li></a>
-    </ul>
-  </div>
-
+<?php
+    get_header();
+?>
 
 <div class="site-main">
   <!-- header -->
 <div class="sticky-container">
-  <div class="sticky-hero">
-    <a href="/">
-        <img class="top-logo" src="/wp-content/uploads/2018/09/dark-logo.png" alt="Logo">
-    </a>
+  <div class="sticky-hero about-us">
+
     <h2>About Us</h2>
 
 
   </div>
 </div>
 <!-- call to action -->
-  <section class="cta cta-lrg grid">
+  <section class="cta cta-lrg grid top-diagonal">
     <div class="span1"></div>
     <div class="span4 text-align">
         <h5>Bellissimo Coffee was established in 2009 and started roasting from our flagship store at Wandoo Street in Brisbane’s Fortitude Valley in 2010.</h5>

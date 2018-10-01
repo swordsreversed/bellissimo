@@ -18,7 +18,7 @@
             <div class="footer-logo-area">
                 <div class="about">
                     <div style="margin: 30px 0 40px 110px;">
-                        <img src="/wp-content/uploads/2018/09/light-icon.png" width="70px" alt="Bellissimo">
+                        <a href="/"><img src="/wp-content/uploads/2018/09/light-icon.png" alt="Bellissimo"></a>
                     </div>
                     <div class="footer-logo">
                         <ul>
@@ -31,13 +31,13 @@
             </div>
             <div class="footer-menu footer-menu-top uppercase">
                 <ul>
-                    <li><a href="/about-us">ABOUT US</li>
+                    <li><a href="/about-us">ABOUT US</a></li>
                     <li><a href="/shop">SHOP</a></li>
-                    <li>CAFE PARTNERSHIPS</li>
-                    <li>CORPORATE PARTNERSHIP</li>
-                    <li>TRAINING</li>
+                    <li><a href="/cafe-partnerships">CAFE PARTNERSHIPS</a></li>
+                    <li><a href="/workplace-coffee">Workplace Coffee</a></li>
+                    <li><a href="/menus">MENUS</a></li>
                     <li>CONTACT US</li>
-                    <li><img src="/wp-content/uploads/2018/09/bottom-logo.png" alt="Logo"></li>
+                    <li><a href="/"><img src="/wp-content/uploads/2018/09/bottom-logo.png" alt="Logo"></a></li>
                 </ul>
             </div>
         </div>
@@ -61,6 +61,8 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+
+
 
 </body>
 </html>

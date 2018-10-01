@@ -29,14 +29,15 @@ get_header();
 // do_action( 'woocommerce_before_main_content' );
 
 ?>
-<div class="">
-  <div class="">
-  <a href="/">
-    <img class="top-logo" src="/wp-content/uploads/2018/09/dark-logo.png" alt="Logo">
-    <?php echo do_shortcode('[smartslider3 slider=2]'); ?>
-  </a>
-  </div>
-</div>
+    <div class="sticky-container">
+        <div class="sticky-hero">
+            <?php echo do_shortcode('[metaslider id="3065"]'); ?>
+        </div>
+    </div>
+
+
+
+
 <?php
     do_action('woocommerce_archive_description');
 ?>
@@ -135,23 +136,15 @@ if (woocommerce_product_loop()) {
     </div>
 </section>
 
-<!-- <section class="grid no-diagonal">
-  <div class="product-group span6 full-back-light-beige center-align pad-top-s">
-    <div class="product-grid ">
-      <h2 class="product-cat-header"><span class="full-back-light-beige">EQUIPMENT</span></h2>
-      <?php
-    //   echo do_shortcode('[product_category category="coffee-making-accessories" per_page=12 columns=3 orderby="date" order="desc"]');
-      ?>
-    </div>
-  </div>
-</section> -->
 <!-- call to action -->
 <section class="cta cta-med grid no-diagonal">
     <div class="left span3 center-align">
         <h3>PARTNER WITH US</h3>
-        <p>We believe the partnership we create with you is not just about providing you with great quality coffee, we wish to take a genuine and personal interest in your business, understand your objectives and work together with you to enable you to manage your business for the best outcome possible.</p>
-        <div><a href="#" class="button fixed-button"> COFFEE FOR YOUR WORKPLACE</a></div>
-        <div><a href="#" class="button fixed-button"> CAFE PARTNERSHIP</a></div>
+        <p>
+            We believe the partnership we create with you is not just about providing you with great quality coffee, we wish to take a genuine and personal interest in your business, understand your objectives and work together with you to enable you to manage your business for the best outcome possible.
+        </p>
+        <div><a href="/cafe-partnership" class="button fixed-button"> CAFE PARTNERSHIP</a></div>
+        <div><a href="/workplace-coffee" class="button fixed-button"> COFFEE FOR YOUR WORKPLACE</a></div>
     </div>
     <div class="right span3">
         <img src="/wp-content/uploads/2018/09/partner-background.png" alt="coffee pour">

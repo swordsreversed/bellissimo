@@ -170,7 +170,6 @@ function woocommerce_quantity_input($data = null)
     echo '<div class="qty-drop"><select name="' . esc_attr($defaults['input_name']) . '" title="' . _x('Qty', 'Product Description', 'woocommerce') . '" class="button">' . $options . '</select></div>';
 }
 
-
 add_filter( 'woocommerce_add_to_cart_form_action', 'go_to_cart_page' );
 
 function go_to_cart_page() {
@@ -193,3 +192,164 @@ function hide_coupon_field_on_checkout( $enabled ) {
 	return $enabled;
 }
 add_filter( 'woocommerce_coupons_enabled', 'hide_coupon_field_on_checkout' );
+
+/**
+ * Ensure cart contents update when products are added to the cart via AJAX
+ */
+function my_header_add_to_cart_fragment( $fragments ) {
+
+    ob_start();
+    $count = WC()->cart->cart_contents_count;
+    ?>
+        <a class="cart-contents" href="<?php echo WC()->cart->get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>">
+
+        <span class="cart-contents-count"><?php echo esc_html( $count ); ?></span>
+
+        </a>
+        <?php
+
+    $fragments['a.cart-contents'] = ob_get_clean();
+
+    return $fragments;
+}
+// add_filter( 'woocommerce_add_to_cart_fragments', 'my_header_add_to_cart_fragment' );
+
+remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart');
+remove_filter( 'the_content', 'wpautop' );
+
+add_filter('woocommerce_sale_flash', 'woo_custom_hide_sales_flash');
+function woo_custom_hide_sales_flash()
+{
+    return false;
+}
+
+function add_weight_to_product_price( $price ) {
+    global $product;
+
+        $weight = get_field("weight", $product->id);
+        if ($weight) {
+            $price .= " / " . $weight;
+        }
+
+    return $price;
+}
+add_filter( 'woocommerce_get_price_html', 'add_weight_to_product_price' );
+add_filter( 'woocommerce_cart_item_price', 'add_weight_to_product_price' );
+
+add_action('bel_add_menu', 'bel_minicart', 10);
+add_action('bel_add_menu', 'bel_main_logo', 10);
+
+
+function bel_main_logo() {
+    echo '
+        <div class="main-logo">
+        <a href="/">
+            <img class="top-logo" src="/wp-content/uploads/2018/09/dark-logo.png" alt="Logo">
+        </a>
+        </div>
+    ';
+}
+
+
+
+function bel_minicart() {
+
+        $count = WC()->cart->cart_contents_count;
+        echo '
+            <div id="mini-cart" class="mini-cart-container">
+                <div id="menuToggle" class="pod">
+                <input type="checkbox" />
+                <span style="margin-left:4px"></span>
+                <span style="margin-left:4px"></span>
+                <span style="margin-left:4px"></span>
+                <div id="menu" class="grid">
+                    <div class="span2" style="padding-left:40px;">
+                        <div>
+                            <img src="/wp-content/uploads/2018/09/dark-logo.png" style="width:100px;" />
+                        </div>
+                        <ul style="margin:50px 0 100px 0;">
+                            <li><a href="/find-us">ABOUT US</a></li>
+                            <li><a href="/shop">SHOP</a></li>
+                            <li><a href="/find-us">FIND US</a></li>
+                            <li><a href="/menu">MENUS</a></li>
+                            <li><a href="/cafe-partnerships">CAFE PARTNERSHIPS</a></li>
+                            <li><a href="/workplace-coffee">COFFEE FOR YOUR WORKPLACE TRAINING</a></li>
+                        </ul>
+
+                        <ul class="straight-list">
+                            <li><i class="fab fa-instagram"></i></li>
+                            <li><i class="fab fa-facebook-f"></i></li>
+                            <li><i class="fab fa-linkedin-in"></i></li>
+                            <li><i class="fab fa-twitter"></i></li>
+                        </ul>
+                        <p style="font-size:0.7em;">© 2018 BELLISSIMO COFFEE All Rights Reserved</p>
+                    </div>
+                    <div class="span4" style="padding:40px;">
+                        <div>
+                            <div style="float:left;">
+                                <h6>FORTITUDE VALLEY</h6>
+                                <ul style="margin:0;">
+                                    <li>30 Wandoo St,<li>
+                                    <li>Fortitude Valley<li>
+                                    <li>QLD, 4006<li>
+                                    <li>Phone // (07) 3666 0554<li>
+                                </ul>
+                                <br>
+                            </div>
+                            <div style="float:left;padding-left:20px;">
+                                <img style="width:60%;" src="/wp-content/uploads/2018/10/valley.png"/>
+                                <br>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="float:left;">
+                                <h6>BULIMBA</h6>
+                                <ul style="margin:0;">
+                                    <li>30 Wandoo St,<li>
+                                    <li>Fortitude Valley<li>
+                                    <li>QLD, 4006<li>
+                                    <li>Phone // (07) 3666 0554<li>
+                                </ul>
+
+                            </div>
+                            <div style="float:left;padding-left:20px;">
+                                <img style="width:60%;" src="/wp-content/uploads/2018/10/valley.png"/>
+                                <br>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="float:left;">
+                                <h6>COORPAROO</h6>
+                                <ul style="margin:0;">
+                                    <li>30 Wandoo St,<li>
+                                    <li>Fortitude Valley<li>
+                                    <li>QLD, 4006<li>
+                                    <li>Phone // (07) 3666 0554<li>
+                                </ul>
+
+                            </div>
+                            <div style="float:left;padding-left:20px;">
+                                <img style="width:60%;" src="/wp-content/uploads/2018/10/valley.png"/>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="pod">
+
+                   <a class="mini-cart" href="';
+                   echo WC()->cart->get_cart_url();
+                   echo '" title="">
+                       <i class="fas fa-shopping-cart fa-2x"></i>
+                       <span class="fa-layers-counter" >';
+                       echo esc_html( $count );
+                       echo '</span>
+                   </a>
+            </div>
+            <div class="pod" style="margin-left:6px">
+                   <a href="/account"><div class="far fa-user fa-2x"></div></a>
+            </div>
+        </div>
+       ';
+}

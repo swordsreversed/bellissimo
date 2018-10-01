@@ -17,9 +17,6 @@ get_header(); ?>
             <!-- header -->
             <div class="sticky-container">
             <div class="sticky-hero">
-                <a href="/">
-                    <img class="top-logo" src="/wp-content/uploads/2018/09/dark-logo.png" alt="Logo">
-                </a>
                 <h2>Your Cart</h2>
             </div>
             </div>

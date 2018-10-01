@@ -16,10 +16,17 @@
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 <?php wp_head(); ?>
+
 </head>
 
 <body <?php body_class(); ?>>
+<div style="position:relative">
+<?php
 
+do_action( 'bel_add_menu' );
+
+?>
+</div>
 <?php do_action( 'storefront_before_site' ); ?>
 
 <div id="page" class="hfeed site">
