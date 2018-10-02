@@ -258,7 +258,7 @@ function bel_minicart() {
         echo '
             <div id="mini-cart" class="mini-cart-container">
                 <div id="menuToggle" class="pod">
-                <input type="checkbox" />
+                <input style="margin-left: 20px;" type="checkbox" />
                 <span style="margin-left:4px"></span>
                 <span style="margin-left:4px"></span>
                 <span style="margin-left:4px"></span>

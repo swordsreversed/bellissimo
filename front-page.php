@@ -5,11 +5,13 @@
 ?>
 
 <!-- header -->
-<header class="hero" style="border 2px red;">
-<video poster="/wp-content/uploads/2018/09/hero1.jpg" id="bgvid" playsinline autoplay muted loop>
-<source src="/wp-content/uploads/2018/09/home.mov" type="video/mp4">
-
-</video>
+<header class="hero has-overlay">
+    <video poster="/wp-content/uploads/2018/09/hero1.jpg" id="bgvid" playsinline autoplay muted loop>
+        <source src="/wp-content/uploads/2018/09/home.mov" type="video/mp4">
+    </video>
+    <div class="hero-text">
+        <img src="/wp-content/uploads/2018/10/front-overlay.png"/>
+    </div>
 </header>
 
 <div class="site-main front-products1">
