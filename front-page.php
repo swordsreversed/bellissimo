@@ -5,7 +5,7 @@
 ?>
 
 <!-- header -->
-<header class="hero">
+<header class="hero" style="border 2px red;">
 <video poster="/wp-content/uploads/2018/09/hero1.jpg" id="bgvid" playsinline autoplay muted loop>
 <source src="/wp-content/uploads/2018/09/home.mov" type="video/mp4">
 

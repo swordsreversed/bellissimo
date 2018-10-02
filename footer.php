@@ -44,7 +44,7 @@
             <div class="footer-menu footer-menu-bottom med-dark">
                 <ul>
                     <li><strong>&copy; 2018 BELLISSIMO COFFEE</strong> All Rights Reserved</li>
-                    <li>Terms & Conditions</li>
+                    <li><a href="/tandc">Terms & Conditions</a></li>
                     <li>Delivery & Returns</li>
                     <li>Privacy Policy</li>
                     <li>FAQs</li>

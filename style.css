@@ -34,6 +34,10 @@ a:hover {
   overflow-x: unset;
 }
 
+.site-main {
+  margin-bottom: 0;
+}
+
 li {
   list-style: none;
 }
@@ -77,6 +81,12 @@ h1, h2, h3, h4, h5 {
   border-top: 1px solid #e5d1b7;
   min-height: 1190px;
   background-image: linear-gradient(-10deg, #fff 65%, #e5d1b7 65%);
+}
+
+.sticky-container.short {
+  max-height: 500px;
+  min-height: 400px;
+  background-image: linear-gradient(-10deg, #fff 32%, #e5d1b7 32%);
 }
 
 .main-logo {
@@ -158,7 +168,7 @@ video {
   background-image: linear-gradient(-10deg, #F0E5D5 35%, #fff 35%);
 }
 
-.product-subcontainer {
+.product-subcontainer, .sticky-subcontainer {
   margin: 5% 10% 0 3%;
   padding: 10% 6% 4% 10%;
 }
@@ -185,6 +195,11 @@ video {
   align-items: center;
   min-height: 550px;
   margin: 0 10%;
+}
+
+.sticky-hero.short {
+  align-items: flex-start;
+  min-height: 300px
 }
 
 .sticky-hero h2 {
@@ -413,6 +428,10 @@ nav a:first-child {
   font-size: 1.1em;
 }
 
+.site-footer a:not(.button) {
+  color: #fff !important;
+}
+
 #menu {
   position: fixed;
   top: 0;
@@ -436,6 +455,10 @@ nav a:first-child {
   opacity: 1;
   margin-left: 0;
   left: 0 ;
+}
+
+.left-align h5 {
+  text-align: left !important;
 }
 
 #menuToggle input:not(:checked) ~ div {
@@ -590,8 +613,15 @@ button.alt:hover, input[type="button"].alt:hover, input[type="reset"].alt:hover,
   padding: 0 6% 0 10%;
 }
 
+
+
 .cart-subcontainer h1.entry-title {
   text-align: center;
+  display: none;
+}
+
+.sticky-subcontainer.top-diagonal {
+  background-image: linear-gradient(-10deg, #fff 37.3%, #f8f1e9 37.3%);
 }
 
 .hentry {
@@ -896,6 +926,8 @@ ul.products li.product .price {
   font-size: 0.8em;
 }
 
+
+
 /* product thumbnail */
 
 .product-thumb {
@@ -1121,6 +1153,14 @@ select::-ms-expand {
 
 .marg-bottom-m {
   margin-bottom: 3em;
+}
+
+.remove-top-m {
+  margin-top: 0;
+}
+
+.remove-top-p {
+  padding-top: 0;
 }
 
 .woocommerce-product-gallery__trigger, .related.products h2 {

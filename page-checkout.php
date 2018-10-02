@@ -14,9 +14,9 @@ get_header(); ?>
 
 	<div id="primary" class="">
     <header class="hero cart-hero">
-  <div class="center-content">
-  </div>
-</header>
+        <div class="center-content">
+        </div>
+    </header>
 		<main id="main" class="site-main" role="main">
             <!-- header -->
 

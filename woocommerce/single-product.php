@@ -31,9 +31,7 @@ get_header(); ?>
 		do_action( 'woocommerce_before_main_content' );
 	?>
 <div class="product-container top-diagonal">
-    <div>
 
-    </div>
     <div class="product-subcontainer top-diagonal">
         <div class="grid">
             <?php while ( have_posts() ) : the_post(); ?>

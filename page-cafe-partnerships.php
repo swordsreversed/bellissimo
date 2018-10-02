@@ -8,9 +8,6 @@
   <!-- header -->
   <div class="sticky-container">
   <div class="sticky-hero cafe-partnership">
-    <a href="/">
-        <img class="top-logo" src="/wp-content/uploads/2018/09/dark-logo.png" alt="Logo">
-    </a>
     <h2>Cafe Partnerships</h2>
   </div>
 </div>

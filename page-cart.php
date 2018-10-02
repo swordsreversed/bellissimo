@@ -15,12 +15,17 @@ get_header(); ?>
 	<div id="primary" class="">
 		<main id="main" class="site-main" role="main">
             <!-- header -->
-            <div class="sticky-container">
-            <div class="sticky-hero">
-                <h2>Your Cart</h2>
+
+
+            <div class="sticky-container short">
+                <div class="sticky-subcontainer top-diagonal">
+
+                    <div class="sticky-hero short">
+                        <h2>Your Cart</h2>
+                    </div>
+                </div>
             </div>
-            </div>
-            <div class="cart-subcontainer">
+            <div class="cart-subcontainer ">
 
 			<?php while ( have_posts() ) : the_post();
 
@@ -37,7 +42,7 @@ get_header(); ?>
 
 			endwhile; // End of the loop. ?>
             </div>
-
+        <div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

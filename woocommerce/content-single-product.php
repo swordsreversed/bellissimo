@@ -79,7 +79,7 @@ if ( post_password_required() ) {
 
 <div class="product-container bottom-diagonal">
 
-    <div class="product-subcontainer bottom-diagonal">
+    <div class="product-subcontainer remove-top-p remove-top-m no-diagonal">
         <div class="grid">
             <div class="span3">
                 <h4>MORE INFORMATION</h4>
