@@ -6,17 +6,18 @@
 
 <!-- header -->
 <header class="hero has-overlay">
-    <video poster="/wp-content/uploads/2018/09/hero1.jpg" id="bgvid" playsinline autoplay muted loop>
+    <video poster="/wp-content/uploads/2018/09/Group-908.jpg" id="bgvid" playsinline autoplay muted loop>
         <source src="/wp-content/uploads/2018/09/home.mov" type="video/mp4">
     </video>
     <div class="hero-text">
-        <img src="/wp-content/uploads/2018/10/front-overlay.png"/>
+        <div><img src="/wp-content/uploads/2018/10/front-overlay.png"/></div>
+        <div><img src="/wp-content/uploads/2018/10/scroll.png"/></div>
     </div>
 </header>
 
 <div class="site-main front-products1">
 <!-- top products -->
-<section class="product-grid">
+<section>
     <div style="width:75%; margin: 30px auto 50px;"><p>
     Established and headquartered in Brisbane, Australia, Bellissimo Coffee is a team of passionate and enthusiast coffee lovers. We deliver perfectly roasted coffee beans to cafes and businesses all over Australia. </p>
 </div>
@@ -25,7 +26,7 @@
 </div>
 
     <?php
-    echo do_shortcode('[product_category category="coffee-blends" per_page=6 columns=3 orderby="date" order="desc"]');
+    echo do_shortcode('[product_category category="single-origin" per_page=6 columns=3 orderby="date" order="desc"]');
     ?>
     <div><a href="/shop" class="button orange">MORE PRODUCTS</a></div>
 </section>
@@ -51,7 +52,7 @@
 <section id="products2">
     <h4>COFFEE EQUIPMENT</h4>
     <?php
-    echo do_shortcode('[product_category category="coffee-blends" per_page=3 columns=3 orderby="date" order="desc"]');
+    echo do_shortcode('[product_category category="equipment" per_page=3 columns=3 orderby="date" order="desc"]');
     ?>
 </section>
 <section>

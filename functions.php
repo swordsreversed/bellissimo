@@ -57,6 +57,7 @@ add_filter('is_active_sidebar', 'wc_remove_sidebar', 10, 2);
 
 add_action('woocommerce_before_shop_loop_item_title', 'add_start_overlay', 5, 2);
 add_action('woocommerce_before_shop_loop_item_title', 'add_end_overlay', 12, 2);
+remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
 
 function add_start_overlay()
 {
@@ -67,13 +68,21 @@ function add_end_overlay()
 {
     global $product;
     $tn = $product->get_attribute('pa_tasting-notes');
+    echo '<div class="product-thumb-overlay">';
     if ($tn) {
-        echo "<div class=\"product-thumb-overlay\"><h4>TASTING NOTES</h4>";
-        echo "<p>" . $tn . "</p>";
-        echo "</div>";
+        echo "<p>TASTING NOTES:</p>";
+        echo '<p class="tasting-notes">' . $tn . '</p>';
     }
 
-    echo "</div>";
+    echo '<p>' . $product->get_price_html();
+    $pw = $product->get_weight();
+    if ($pw) {
+        echo " / " . $pw*1000 . "g</p>";
+    } else {
+        echo "</p>";
+    }
+
+    echo "</div></div>";
 }
 
 add_action('get_header', 'remove_storefront_sidebar');
@@ -240,7 +249,8 @@ add_action('bel_add_menu', 'bel_minicart', 10);
 add_action('bel_add_menu', 'bel_main_logo', 10);
 
 
-function bel_main_logo() {
+function bel_main_logo()
+{
     echo '
         <div class="main-logo">
         <a href="/">
@@ -249,8 +259,6 @@ function bel_main_logo() {
         </div>
     ';
 }
-
-
 
 function bel_minicart() {
 
@@ -352,4 +360,36 @@ function bel_minicart() {
             </div>
         </div>
        ';
+}
+
+
+function my_widgets_init() {
+
+    register_sidebar( array(
+        'name' => __( 'Product filter Area', 'Bellisimo2018' ),
+        'id' => 'pfilterwidget',
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => "</div>",
+        'before_title' => '<h3>',
+        'after_title' => '</h3>',
+    ) );
+
+
+    }
+add_action( 'widgets_init', 'my_widgets_init' );
+
+remove_action('woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+add_action('woocommerce_before_main_content', 'bel_output_content_wrapper', 10);
+
+function bel_output_content_wrapper()
+{
+    echo '<main id="main" class="site-main" role="main">';
+}
+
+remove_action('woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+add_action('woocommerce_after_main_content', 'bel_output_content_wrapper_end', 10);
+
+function bel_output_content_wrapper_end()
+{
+    echo '</main>';
 }

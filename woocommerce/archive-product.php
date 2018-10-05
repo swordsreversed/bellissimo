@@ -27,6 +27,7 @@ get_header();
  * @hooked WC_Structured_Data::generate_website_data() - 30
  */
 // do_action( 'woocommerce_before_main_content' );
+echo '<main id="main" class="site-main" role="main">';
 
 ?>
     <div class="sticky-container">
@@ -35,13 +36,17 @@ get_header();
         </div>
     </div>
 
-
-
-
 <?php
-    do_action('woocommerce_archive_description');
+    // do_action('woocommerce_archive_description');
 ?>
+<div class="main-navigation">
+<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('pfilterwidget') ) : ?>
+<?php endif; ?>
+</div>
+
 <?php
+
+
 if (woocommerce_product_loop()) {
 
     /**
@@ -51,40 +56,40 @@ if (woocommerce_product_loop()) {
      * @hooked woocommerce_result_count - 20
      * @hooked woocommerce_catalog_ordering - 30
      */
-    // do_action('woocommerce_before_shop_loop');
+    do_action('woocommerce_before_shop_loop');
 
-    // woocommerce_product_loop_start();
+    woocommerce_product_loop_start();
 
-    // if ( wc_get_loop_prop( 'total' ) ) {
-    // 	while ( have_posts() ) {
-    // 		the_post();
+    if ( wc_get_loop_prop( 'total' ) ) {
+    	while ( have_posts() ) {
+    		the_post();
 
-    // 		/**
-    // 		 * Hook: woocommerce_shop_loop.
-    // 		 *
-    // 		 * @hooked WC_Structured_Data::generate_product_data() - 10
-    // 		 */
-    // 		do_action( 'woocommerce_shop_loop' );
+    		/**
+    		 * Hook: woocommerce_shop_loop.
+    		 *
+    		 * @hooked WC_Structured_Data::generate_product_data() - 10
+    		 */
+    		do_action( 'woocommerce_shop_loop' );
 
-    // 		wc_get_template_part( 'content', 'product' );
-    // 	}
-    // }
+    		wc_get_template_part( 'content', 'product' );
+    	}
+    }
 
-    // woocommerce_product_loop_end();
+    woocommerce_product_loop_end();
 
     /**
      * Hook: woocommerce_after_shop_loop.
      *
      * @hooked woocommerce_pagination - 10
      */
-    // do_action( 'woocommerce_after_shop_loop' );
+    do_action( 'woocommerce_after_shop_loop' );
 } else {
     /**
      * Hook: woocommerce_no_products_found.
      *
      * @hooked wc_no_products_found - 10
      */
-    // do_action( 'woocommerce_no_products_found' );
+    do_action( 'woocommerce_no_products_found' );
 }
 
 /**
@@ -93,63 +98,11 @@ if (woocommerce_product_loop()) {
  * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
  */
 // do_action( 'woocommerce_after_main_content' );
-?>
-
-<?php
-/**
- * Hook: woocommerce_sidebar.
- *
- * @hooked woocommerce_get_sidebar - 10
- */
-// do_action( 'woocommerce_sidebar' );
+echo '</main>';
 
 ?>
 
-<!-- <section class="grid no-diagonal">
-  <div class="product-group span6 center-align pad-top-s">
-    <div class="product-grid ">
-      <h2 class="product-cat-header"><span class="full-back-light-beige">EQUIPMENT</span></h2>
-      <?php
-        // echo do_shortcode('[product_category category="coffee-blends" per_page=12 columns=3 orderby="date" order="desc"]');
-      ?>
-    </div>
-  </div>
-</section> -->
 
-<section class="product-grid">
-    <h2 class="product-cat-header"><span class="back-white">coffee beans</span></h2>
-  <?php
-    echo do_shortcode('[product_category category="coffee" per_page=6 columns=3 orderby="date" order="desc"]');
-  ?>
-</section>
-
-<!-- equipment -->
-
-<section class="full-back-light-beige">
-    <div class="product-grid">
-        <h2 class="product-cat-header"><span class="full-back-light-beige">EQUIPMENT</span></h2>
-        <div>
-            <?php
-                echo do_shortcode('[product_category category="coffee-making-accessories" per_page=6 columns=3 orderby="date" order="desc"]');
-            ?>
-        </div>
-    </div>
-</section>
-
-<!-- call to action -->
-<section class="cta cta-med grid no-diagonal">
-    <div class="left span3 center-align">
-        <h3>PARTNER WITH US</h3>
-        <p>
-            We believe the partnership we create with you is not just about providing you with great quality coffee, we wish to take a genuine and personal interest in your business, understand your objectives and work together with you to enable you to manage your business for the best outcome possible.
-        </p>
-        <div><a href="/cafe-partnership" class="button fixed-button"> CAFE PARTNERSHIP</a></div>
-        <div><a href="/workplace-coffee" class="button fixed-button"> COFFEE FOR YOUR WORKPLACE</a></div>
-    </div>
-    <div class="right span3">
-        <img src="/wp-content/uploads/2018/09/partner-background.png" alt="coffee pour">
-    </div>
-</section>
 <?php
 
 

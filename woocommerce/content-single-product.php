@@ -107,8 +107,7 @@ if ( post_password_required() ) {
 
 
 <section class="full-back-light-beige">
-    <div class="product-grid">
-        <h2 class="product-cat-header"><span class="full-back-light-beige">RELATED PRODUCTS</span></h2>
+    <div>
         <div>
             <?php
                 echo do_shortcode('[related_products per_page=6 columns=3 orderby="date" order="desc"]');
@@ -119,13 +118,12 @@ if ( post_password_required() ) {
 
 <!-- image -->
 <div class="hero fixed-image3"></div>
-
+<!-- 2nd product section -->
 <section class="pad-top-m full-back-light-beige">
-    <div class="product-grid">
-        <h2 class="product-cat-header"><span class="full-back-light-beige">COFFEE EQUIPMENT</span></h2>
+    <div>
         <div class="">
             <?php
-                echo do_shortcode('[product_category category="coffee-making-accessories" per_page=3 columns=3 orderby="date" order="desc"]');
+                echo do_shortcode('[product_category category="equipment" per_page=3 columns=3 orderby="date" order="desc"]');
             ?>
         </div>
     </div>
